@@ -19,6 +19,7 @@
     <title>Activity 6</title>
 </head>
 <body>
+<h3>Write a PHP function that checks whether a passed string is a palindrome</h3>
 
 <form action="" method="post">
         <label for="letter">Insert Text: </label>
