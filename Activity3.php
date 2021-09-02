@@ -10,30 +10,21 @@
     <h3>Create a script to construct the following pattern, using a nested for loop.</h3>
     <br>
 
+  
     <?php
-        $subtract = 0;
-        $interval = 2;
-    
-        for($i = 1; $i < 11; $i++){
-            $str = "";
-            $n = 0;
-            if($subtract > 5){
-                $n+= $interval;
-                $interval += 2;
+    $interval = 10;
+    $ast = 1;
+    for ($i = 2; $i > 0; $i--){
+        for($n = 1;$n < 6; $n++, $ast++, $interval--){
+            if($ast < 6){
+                 echo str_repeat("*",$ast)."<br>";
+            }else{
+                echo str_repeat("*",$interval)."<br>";
             }
-
-            
-            for(; $n < $i; $n++){
-                echo $str . "*";
-            }
-            
-
-            echo  "<br>";
-            
-            $subtract ++;
-
-            
+          
         }
+        
+    }
     
     ?>
 </body>

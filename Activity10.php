@@ -1,6 +1,31 @@
 <?php
     function bubble_sort($num1, $num2, $num3 , $num4, $num5, $num6, $num7, $num8, $num9, $num10){
-        
+        // $num1 = $num1;
+        // $num2 = $num2;
+        // $num3 = $num3;
+        // $num4 = $num4;
+        // $num5 = $num5;
+        // $num6 = $num6;
+        // $num7 = $num7;
+        // $num8 = $num8;
+        // $num9 = $num9;
+        // $num10 = $num10;
+
+        $numArray = array($num1, $num2, $num3 , $num4, $num5, $num6, $num7, $num8, $num9, $num10);
+
+        $interval = 0;
+        for($i = 0; $i < 10; $i++){
+            for($n = 0; $n < 10; $n++){
+                if ($numArray[$i] < $numArray[$n]){
+                    $numArray[$n] +=  $numArray[$i];
+                    $numArray[$i] = $numArray[$n] - $numArray[$i] ;
+                    $numArray[$n] = $numArray[$n] - $numArray[$i];
+                }
+
+            }
+        }
+
+        return $numArray;
     }
 
 ?>
@@ -54,6 +79,7 @@
     <br>
 
     <?php
+        $num1; $num2; $num3 ; $num4; $num5; $num6; $num7; $num8; $num9; $num10;
 
         $num1 = $_POST["num1"];
         $num2 = $_POST["num2"];
@@ -67,7 +93,15 @@
         $num10 = $_POST["num10"];
         if(isset($num1) && isset($num2) && isset($num3) && isset($num4) && isset($num5) && isset($num6) && isset($num7) && isset($num8) &&isset($num9) &&isset($num10)){
 
-        echo $num1." ".$num2." ".$num3." ".$num4." ".$num5." ".$num6." ".$num7." ".$num8." ".$num9." ".$num10;
+        echo "Your Input: ".$num1." ".$num2." ".$num3." ".$num4." ".$num5." ".$num6." ".$num7." ".$num8." ".$num9." ".$num10;
+        echo "<br>";
+        $finalArray = bubble_sort($num1, $num2, $num3 , $num4, $num5, $num6, $num7, $num8, $num9, $num10);
+        echo "Bubble Sort: ";
+        for($i = 0; $i < 10; $i++){
+            echo $finalArray[$i]." ";
+        }
+
+
         }
 
 ?>
