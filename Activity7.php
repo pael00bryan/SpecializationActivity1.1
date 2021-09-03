@@ -10,7 +10,7 @@
     
 <form action="" method="post">
         <label for="birthday">Birthday: </label>
-        <input type="date" name="birthday">
+        <input type="date" name="birthday" value="<?php echo date('Y-m-d'); ?>">
         <br>
         <input type="submit" name="submit">
     </form>
@@ -19,14 +19,35 @@
 <?php
 
 if(isset($_POST["birthday"])){
+    
 
-    $datetime1 = new DateTime($_POST["birthday"]);
-    $datetime2 = new DateTime(date("m-d-Y"));
+    $birthday = $_POST["birthday"];
 
-    $difference = $datetime1->diff($datetime2);
+    $dateToday = date("Y-m-d");
 
-    echo 'Difference: '.$difference->y.' years, ' .$difference->m.' months, ' .$difference->d.' days';
+    echo "Birthday: ". $birthday;
     echo "<br>";
+    echo "Date Today: ".$dateToday;
+    echo "<br>";
+    
+    $daysOfBday = idate("m",strtotime($birthday))*30 + idate("d",strtotime($birthday));
+
+    $daysOfToday = idate("m",strtotime($dateToday))*30 + idate("d",strtotime($dateToday));
+
+    if($daysOfBday > $daysOfToday){
+        // echo "Birthday ".$daysOfBday. " > ". $daysOfToday . " Today  - True";
+        // echo "<br>";
+        echo "Days Left: ".( intval($daysOfBday) - intval($daysOfToday));
+
+    }elseif($daysOfBday < $daysOfToday){
+        // echo "Birthday ".$daysOfBday. " < ". $daysOfToday . " Today - False";
+        // echo "<br>";
+        echo "Days Left: ".( (intval($daysOfBday) + 365 ) - intval($daysOfToday));
+    }else{
+        // echo "Birthday ".$daysOfBday. " = ". $daysOfToday . " Today - Equal";
+        // echo "<br>";
+        echo "Happy Birthday!";
+    }
 
 }else{
     echo "Please Fill the Date";

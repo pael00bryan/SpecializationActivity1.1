@@ -1,19 +1,8 @@
 <?php
     function bubble_sort($num1, $num2, $num3 , $num4, $num5, $num6, $num7, $num8, $num9, $num10){
-        // $num1 = $num1;
-        // $num2 = $num2;
-        // $num3 = $num3;
-        // $num4 = $num4;
-        // $num5 = $num5;
-        // $num6 = $num6;
-        // $num7 = $num7;
-        // $num8 = $num8;
-        // $num9 = $num9;
-        // $num10 = $num10;
 
         $numArray = array($num1, $num2, $num3 , $num4, $num5, $num6, $num7, $num8, $num9, $num10);
 
-        $interval = 0;
         for($i = 0; $i < 10; $i++){
             for($n = 0; $n < 10; $n++){
                 if ($numArray[$i] < $numArray[$n]){

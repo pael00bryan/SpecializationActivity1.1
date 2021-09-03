@@ -4,7 +4,6 @@ function ConvertToRoman($num){
     $n = intval($num); 
     $res = ''; 
 
-    //array of roman numbers
     $romanNumber_Array = array( 
         'M'  => 1000, 
         'CM' => 900, 
